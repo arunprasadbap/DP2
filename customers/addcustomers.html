@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang = "en">
     <head>
-    <title>Customers</title>
+    <title>Add Customers</title>
         
     <meta charset = "utf-8" />
     <meta name = "viewport" content = "width = device - width, initial-scale=1" />
@@ -34,14 +34,28 @@
             </ul>
         </div>
     </nav>
-	
-            <p style="font-size:160%;"><a href="../index.html">Home</a></p>
-                        
-            <br/>
-            	<ul>
-            <li><strong><a href="showcustomers.html">Show Customers</a></strong></li><li><strong><a href="addcustomers.html">Add Customers</a></strong></li>
-	</ul>
-        </div>
 
-    </body>
+	<div class="form-group">
+    <form action="addCustomers.php" id="customers" method="POST"> 
+    <fieldset>
+        <h1><strong><legend>CUSTOMER DETAILS</legend></strong></h1>
+			<p>Customer Name: <input type="text" name="Name" placeholder="Your Name" /></p>
+            <p>Customer ID: <input type="text" name="Id" placeholder="Your ID" /></p>
+        <strong><p>Gender</p></strong>
+        <p><input type="radio" name="gender" value="male"> Male<br></p>
+        <p><input type="radio" name="gender" value="female"> Female<br></p>
+     
+	    <br/>
+	        <div id="forms"></div>
+        <p><button onclick="Addcustomer()">Add Customer Details</button></p>
+	</fieldset>
+
+
+        <p><input type="reset"/></p>
+        <p><input type="submit"/></p>
+    </form>
+	</div>
+
+    </div>
+</body>
 </html>
