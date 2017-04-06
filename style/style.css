@@ -64,3 +64,36 @@ footer p{
 	margin-left:35%
 }
 
+#customername{
+    color:azure;
+    
+}
+#customerid{
+    color:azure;
+    
+}
+
+#gender{
+    color:azure;
+    
+}
+#cust{
+    color:white;
+     text-align: center;
+     font-weight: bold;
+    
+}
+#buttons{
+    
+    color: black;
+    font-weight: bold;
+}
+#customernamee{
+    
+    
+    color: black;
+}
+#customeridd{
+    
+    color: black;
+}
