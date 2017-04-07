@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
     <link href="../style/style.css" rel="stylesheet"/>
     
     </head>   
@@ -25,7 +26,6 @@
         <div class="container-fluid">
             <ul class="nav navbar-nav">
                   <li><a href="../index.html">Home</a></li>
-             
                 <li><a href="inventory/index.html">Inventory</a></li>
                 <li><a href="report/index.html">Report</a></li>
                 <li><a href="sales/index.html">Sales</a></li>
@@ -34,13 +34,47 @@
             </ul>
         </div>
     </nav>
-	
-            <p style="font-size:160%;"><a href="../index.html">Home</a></p>
-                        
-            <br/>
-            	<ul>
-            <li><strong><a href="showcustomers.html">Show Customers</a></strong></li><li><strong><a href="addcustomers.html">Add Customers</a></strong></li>
-	</ul>
+        
+        <div>
+        <div class = "row" id="row1">
+                <div class = "col-md-6">
+                    
+                    <div class = "srs2">
+                        <img src = "images/show.png" alt = "sales.png" width="250" height="250"/>
+                        <div class = "srs2_01" style="padding:10px;">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class = "col-md-6">
+                    
+                    <div class = "srs2">
+                        <img src = "images/add.png" alt = "addsales.png" width="250" height="250"/>
+                        <div class = "srs2_01" style="padding:10px;">
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        
+        </div>
+        
+        <!-- Creating the buttons under the images -->
+            
+            <div class = "row" id="row2">
+                <div class = "col-md-6 text-center">
+                    <a href = "showcustomers.html"><button type = "button" class = "btn btn-success btn-lg btn-block" style="margin-bottom:10px;">Show Customers</button></a>
+                </div>
+                
+                <div class = "col-md-6 text-center">
+                    <a href = "addcustomers.html"><button type = "button" class = "btn btn-primary btn-lg btn-block" style="margin-bottom:10px;">Add Customers</button></a>
+                </div>
+            </div>
+        
+    
         </div>
 
     </body>
