@@ -9,6 +9,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="../style/style.css" rel="stylesheet"/>
+        <script>
+            function lettersOnly(input){
+                var reg = /[^a-z]/gi;
+                input.value = input.value.replace(reg,"");
+                     
+  }
+        function validateForm() {
+    var x = document.forms["customersform"]["customernamee"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+       
+    }
+           
+              var y = document.forms["customersform"]["customeridd"].value;
+    if (y == "") {
+        alert("Customer ID is required");
+        return false;
+    }
+}
+        
+        
+        </script>>
     
     </head>   
 <body>
@@ -36,23 +59,23 @@
     </nav>
 
 	<div class="form-group">
-    <form action="addCustomers.php" id="customers" method="POST"> 
+    <form action="showcustomers.html" id="customersform" onsubmit="return validateForm()" method="POST"> 
     <fieldset>
-        <h1><strong><legend>CUSTOMER DETAILS</legend></strong></h1>
-			<p>Customer Name: <input type="text" name="Name" placeholder="Your Name" /></p>
-            <p>Customer ID: <input type="text" name="Id" placeholder="Your ID" /></p>
-        <strong><p>Gender</p></strong>
-        <p><input type="radio" name="gender" value="male"> Male<br></p>
-        <p><input type="radio" name="gender" value="female"> Female<br></p>
+        <p id="cust"><strong><legend id="cust">CUSTOMER DETAILS</legend></strong></p>
+			<p id="customername">Customer Name: <input type="text" name="Name" id="customernamee" placeholder="Your Name" onkeyup="lettersOnly(this)" /></p>
+            <p id="customerid">Customer ID: <input type="text" id="customeridd" name="Id" placeholder="Your ID" /></p>
+        <strong><p id="gender">Gender</p></strong>
+        <p id="gender"><input type="radio" name="gender" value="male"> Male<br></p>
+        <p id="gender"><input type="radio" name="gender" value="female"> Female<br></p>
      
 	    <br/>
 	        <div id="forms"></div>
-        <p><button onclick="Addcustomer()">Add Customer Details</button></p>
+        <p id="buttons"><button onclick="onRegister()">Add Customer Details</button></p>
 	</fieldset>
 
 
-        <p><input type="reset"/></p>
-        <p><input type="submit"/></p>
+        <p id="buttons"><input type="reset"/></p>
+        <p id="buttons"><input type="submit"/></p>
     </form>
 	</div>
 
