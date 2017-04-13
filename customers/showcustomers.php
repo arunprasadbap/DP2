@@ -6,7 +6,6 @@ $data=array();
 while($row=mysqli_fetch_assoc($rs)){
     $data[]=$row;
 }
-
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -52,30 +51,46 @@ while($row=mysqli_fetch_assoc($rs)){
               </div>
             </nav>
     <div style="height:800px; overflow-y:auto;">
-		<table id="tablee" border="1em" class="table table-bordered table-striped table-hover">
+		<table id="tablee" border="1em" class="table table-bordered table-hover" style="background-color:#C0C0C0;">
 		  <thead>
 			<tr id="cust">
-			<th id="cust">Customer ID</th>
+			<th id="cust"></th>
+            <th id="cust">Customer ID</th>
 			<th id="cust">Customer Name</th>
 			<th id="cust">Gender</th>
-			<th id="cust">Edit</th>
-			<th id="cust">Deletion</th>
 		</tr>
 		  </thead>
 
 		  <tbody>
+             <?php
+               //print_r($data);
+              ?>
               <?php foreach($data as $customers){?>
               <tr>
+                  <td><form name="form1" method="post"><input name="checkbox[]" type="checkbox" id="checkbox[]" 
+                                                              value="<?php echo $customers['customerID']; ?>"></td>
                   <td><?php echo $customers['customerID'];?></td>
                   <td><?php echo $customers['customername'];?></td>
                   <td><?php echo $customers['gender'];?></td>
               </tr>
-              <?php }?>
-              
-              
+              <?php } ?>
+              <tr><td colspan="4"><input type="submit" id="delete" name="delete" value="DELETE" style="float: right;margin-left:10px;"><input type="submit" id="edit" value="EDIT" name="edit" style="float: right;margin-left:10px"></td></tr>
+        <?php
+              //print_r($_POST);
+            if(isset($_POST['delete'])){
+                for($i=0;$i<count($_POST['checkbox']);$i++)
+                {
+                $del_id=$_POST['checkbox'][$i];
+//                $sql = "DELETE FROM `customer` WHERE customerID = $del_id";
+                $result = mysqli_query($con, "DELETE FROM customer WHERE customerID=$del_id");
+                echo "<meta http-equiv=\"refresh\" content=\"0;URL=showcustomers.php\">";
+            }
+            }
+              ?>
 		  </tbody>
+            </form>
 		</table>
-	</div>
+    </div>
   </div>
   </body>
 </html>
