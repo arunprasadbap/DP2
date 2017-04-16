@@ -74,7 +74,7 @@ while($row=mysqli_fetch_assoc($rs)){
                   <td><?php echo $customers['gender'];?></td>
               </tr>
               <?php } ?>
-              <tr><td colspan="4"><input type="submit" id="delete" name="delete" value="DELETE" style="float: right;margin-left:10px;"><input type="submit" id="edit" value="EDIT" name="edit" style="float: right;margin-left:10px"></td></tr>
+              <tr><td colspan="4"><input type="submit" id="delete" name="delete" value="DELETE" style="float: right;margin-left:10px;"><a class="button" href="addcustomers.html">Go back</a></td></tr>
         <?php
               //print_r($_POST);
             if(isset($_POST['delete'])){
