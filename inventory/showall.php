@@ -72,7 +72,21 @@ while($row=mysqli_fetch_assoc($rs)){
                   
               </tr>
               <?php }?>
+              <tr><td colspan="4"><input type="submit" id="delete" name="delete" value="DELETE" style="float: right;margin-left:10px;"><a class="button" href="addInventory.html">Go back</a></td></tr>
               
+              <?php
+              //print_r($_POST);
+            if(isset($_POST['delete'])){
+                for($i=0;$i<count($_POST['checkbox']);$i++)
+                {
+                $del_id=$_POST['checkbox'][$i];
+                    
+//                $sql = "DELETE FROM `customer` WHERE customerID = $del_id";
+                $result = mysqli_query($con, "DELETE FROM inventory WHERE itemId=$del_id");
+                echo "<meta http-equiv=\"refresh\" content=\"0;URL=showall.php\">";
+            }
+            }
+              ?>
               
 		  </tbody>
 		</table>
