@@ -58,13 +58,15 @@ while($row=mysqli_fetch_assoc($rs)){
 			<th id="inventory">Item Description</th>
 			<th id="inventory">Item Count</th>
 			<th id="inventory">Item Price</th>
-			<th id="inventory">Deletion</th>
+			
 		</tr>
 		  </thead>
 
 		  <tbody>
               <?php foreach($data as $inventory){?>
               <tr>
+                  <td><form name="form1" method="post"><input name="checkbox[]" type="checkbox" id="checkbox[]"></form></td>
+                      
                   <td><?php echo $inventory['item_name'];?></td>
                   <td><?php echo $inventory['itemdec'];?></td>
                   <td><?php echo $inventory['itemcount'];?></td>
@@ -75,13 +77,13 @@ while($row=mysqli_fetch_assoc($rs)){
               <tr><td colspan="4"><input type="submit" id="delete" name="delete" value="DELETE" style="float: right;margin-left:10px;"><a class="button" href="addInventory.html">Go back</a></td></tr>
               
               <?php
-              //print_r($_POST);
+             
             if(isset($_POST['delete'])){
                 for($i=0;$i<count($_POST['checkbox']);$i++)
                 {
                 $del_id=$_POST['checkbox'][$i];
                     
-//                $sql = "DELETE FROM `customer` WHERE customerID = $del_id";
+
                 $result = mysqli_query($con, "DELETE FROM inventory WHERE itemId=$del_id");
                 echo "<meta http-equiv=\"refresh\" content=\"0;URL=showall.php\">";
             }
@@ -89,6 +91,7 @@ while($row=mysqli_fetch_assoc($rs)){
               ?>
               
 		  </tbody>
+            
 		</table>
 	</div>
   </div>
