@@ -11,6 +11,12 @@ if(isset($_POST['gender'])){
 if(isset($_POST['genderF'])){
     $gender = $_POST['genderF'];
 }
+if(isset($_POST['Custno'])){
+    $custno = $_POST['Custno'];
+}
+if(isset($_POST['Custhm'])){
+    $custhm = $_POST['Custhm'];
+}
 
 $servername ="localhost";
 $username="root";
@@ -25,7 +31,7 @@ if(!$conn){
         mysqli_select_db($conn, "dp2");
 		$sqltable = "customer";
 		
-		$querycom = "insert into $sqltable (customername, customerID, gender) values ('$custname','$custID', '$gender')";
+		$querycom = "insert into $sqltable (customername, customerID, gender,ContactNo,Hometown) values ('$custname','$custID', '$gender','$custno',' $custhm')";
 		
         if (mysqli_query($conn, $querycom)){
                 echo "ADDED";
