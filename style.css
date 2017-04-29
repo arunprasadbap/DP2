@@ -1,0 +1,103 @@
+body {
+    background-image: url("../images/capture_01.jpg");
+	background-color: white;
+}
+
+h1{
+    font-family:fantasy;
+	text-align:center;
+    color: black;
+}
+#h1{
+	color:black;
+}
+
+.container {
+    height: auto;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .5);
+    background-color: white;
+}
+
+.container.home{
+    text-align: center;
+    
+}
+
+
+
+.navbar {
+	margin-left:350px;
+	margin-right:350px;
+/*
+	height:50px;
+	display:inline-block;
+	font-family: bold;
+    width: auto;
+	
+*/
+    
+    background-color: gainsboro;
+    text-align: center;
+}
+
+div.srs1 {
+    text-align: center;
+}
+
+div.srs2 {
+    text-align: center;
+}
+
+
+.row1{
+    margin-top: 100px;
+}
+
+
+
+#foot{
+	font-size:14pt;
+	clear:both;
+	color: red;
+	
+}
+
+footer p{
+	display: inline-block;
+	width:33%;
+	margin-left:35%
+}
+
+#customername{
+    color:black;
+    
+}
+#customerid{
+    color:black;
+    
+}
+
+#gender{
+    color:azure;
+    
+}
+#cust{
+    color:black;
+     text-align: center;
+     font-weight: bold;
+    
+}
+#buttons{
+    
+    color: black;
+    font-weight: bold;
+}
+#customernamee{
+    
+    
+    color: black;
+}
+#customeridd{
+    
+    color: black;
+}
