@@ -15,11 +15,20 @@ while($row=mysqli_fetch_assoc($rs)){
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         
         <link href="../style/style.css" rel="stylesheet"/> 
-        <script>
-        
-        var table = document.getElementById("tablee");
-        
-        
+        <script type="text/javascript">
+        function phj()
+              {
+                var limit = 1;
+                $('input.single-checkbox').on('change', function(evt)
+                {
+                    alert('Hellp');
+                 if($(this).siblings(':checked').length >= limit)
+                 {
+                   this.checked = false;
+                     alert('ERROR');
+                   }
+                });
+
         
         
         
@@ -58,26 +67,31 @@ while($row=mysqli_fetch_assoc($rs)){
             <th id="cust">Customer ID</th>
 			<th id="cust">Customer Name</th>
 			<th id="cust">Gender</th>
+                <th id="cust">Contact Number</th>
+                <th id="cust">Hometown</th>
 		</tr>
 		  </thead>
-
 		  <tbody>
              <?php
                //print_r($data);
               ?>
               <?php foreach($data as $customers){?>
               <tr>
-                  <td><form name="form1" method="post"><input name="checkbox[]" type="checkbox" id="checkbox[]" 
-                                                              value="<?php echo $customers['customerID']; ?>"></td>
+                  <td><form name="form1" method="post" class="single-checkbox"><input name="checkbox[]" type="checkbox" id="checkbox[]" 
+                                                              value="<?php echo $customers['customerID']; ?>" action="editcustomers.html"></td>
                   <td><?php echo $customers['customerID'];?></td>
                   <td><?php echo $customers['customername'];?></td>
                   <td><?php echo $customers['gender'];?></td>
+                   <td><?php echo $customers['ContactNo'];?></td>
+                   <td><?php echo $customers['Hometown'];?></td>
               </tr>
+              }
               <?php } ?>
-              <tr><td colspan="4"><input type="submit" id="delete" name="delete" value="DELETE" style="float: right;margin-left:10px;"><a class="button" href="addcustomers.html">Go back</a></td></tr>
+              <tr><td colspan="6"><input type="submit" id="delete" name="delete" value="DELETE" style="float: right;margin-left:10px;"></form><form method="post" action="editcustomers.html"><input type="submit" id="edit" value="EDIT" name="edit" style="float: right;margin-left:10px"></td></tr>
         <?php
-              //print_r($_POST);
-            if(isset($_POST['delete'])){
+              //print_r($_POST)
+            if(isset($_POST['delete']))
+            {
                 for($i=0;$i<count($_POST['checkbox']);$i++)
                 {
                 $del_id=$_POST['checkbox'][$i];
