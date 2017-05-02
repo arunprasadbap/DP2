@@ -5,7 +5,10 @@ body {
 h1{
     font-family:fantasy;
 	text-align:center;
-    color: gainsboro;
+    color: white;
+}
+h2{
+    color: white;
 }
 
 .container {
@@ -19,7 +22,9 @@ h1{
     
 }
 
-
+#txtboxheadings{
+    color: white;
+}
 
 .navbar {
 	margin-left:350px;
