@@ -77,33 +77,89 @@ while($row=mysqli_fetch_assoc($rs)){
               ?>
               <?php foreach($data as $customers){?>
               <tr>
+                    <tr id="row<?php echo $customer['customerID']; ?>">
                   <td><form name="form1" method="post" class="single-checkbox"><input name="checkbox[]" type="checkbox" id="checkbox[]" 
                                                               value="<?php echo $customers['customerID']; ?>" action="editcustomers.html"></td>
                   <td><?php echo $customers['customerID'];?></td>
-                  <td><?php echo $customers['customername'];?></td>
+                 <td class="cutn"><?php echo $customers['customername'];?></td>
                   <td><?php echo $customers['gender'];?></td>
                    <td><?php echo $customers['ContactNo'];?></td>
                    <td><?php echo $customers['Hometown'];?></td>
+                   <td class="btn"><button onClick="return editRow(<?php echo $customers['customerID'] ?>)" type="button">Edit</button></td>
               </tr>
               }
               <?php } ?>
-              <tr><td colspan="6"><input type="submit" id="delete" name="delete" value="DELETE" style="float: right;margin-left:10px;"></form><form method="post" action="editcustomers.html"><input type="submit" id="edit" value="EDIT" name="edit" style="float: right;margin-left:10px"></td></tr>
+               <script 
+       src="https://code.jquery.com/jquery-3.2.1.min.js" 
+       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" 
+       crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+  function editRow(customerID){
+    var gender=$("#row"+customerID+" .gender");
+    var cutn=$("#row"+customerID+" .cutn");
+    var Custno=$("#row"+customerID+" .Custno");
+    var Custhm=$("#row"+customerID+" .Custhm");
+    var btn=$("#row"+customerID+" .btn");
+
+
+    gender.html("<input type='text' name='gender' id='gender"+customerID+"' value='"+gender.html()+"' />");
+   cutn.html("<input type='text' name='cutn' id='cutn"+customerID+"' value='"+cutn.html()+"' />");
+    Custno.html("<input type='text' name='Custno' id='Custno"+customerID+"' value='"+Custno.html()+"' />");
+    btn.html("<button type='button' onClick='return updateRow("+customerID+")'>Update</button>");
+  }
+
+  function updateRow(customerID){
+
+    var genderVal=$("#gender"+customerID).val();
+    var cutnVal=$("#cutn"+customerID).val();
+    var CustnoVal=$("#Custno"+customerID).val();
+
+    var gender=$("#row"+customerID+" .gender");
+    var cutn=$("#row"+customerID+" .cutn");
+    var Custhm=$("#row"+customerID+" .Custhm");
+    var  Custno=$("#row"+customerID+" .Custno");
+    var btn=$("#row"+customerID+" .btn");
+
+    $.ajax({
+      method: "POST",
+      url: "editcustomers.php",
+      data: { CustID: customerID, gender:genderVal, customername:cutnVal, Custno:CustnoVal  }
+    })
+      .done(function( msg ) {
+        gender.html(genderVal);
+       CustName.html(CustNameVal);
+       Custno.html(CustnoVal);
+
+       // price.html(price.attr('price')*quantityVal);
+        btn.html('<button onClick="return editRow('+customerID+')" type="button">Edit</button>');
+      });
+
+  } 
+
+</script>
+              <td colspan="6"><input type="submit" id="delete" name="delete" value="DELETE" style="float: right;margin-left:10px;"></td>
         <?php
               //print_r($_POST)
             if(isset($_POST['delete']))
             {
                 for($i=0;$i<count($_POST['checkbox']);$i++)
-                {
+                {   
                 $del_id=$_POST['checkbox'][$i];
 //                $sql = "DELETE FROM `customer` WHERE customerID = $del_id";
                 $result = mysqli_query($con, "DELETE FROM customer WHERE customerID=$del_id");
                 echo "<meta http-equiv=\"refresh\" content=\"0;URL=showcustomers.php\">";
+                 
             }
             }
               ?>
+       
+
 		  </tbody>
-            </form>
+            
+            
 		</table>
+            
     </div>
   </div>
   </body>
