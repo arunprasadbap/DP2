@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+    <head>
+    <title>Add Customers</title>
+        
+    <meta charset = "utf-8" />
+    <meta name = "viewport" content = "width = device - width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="../style/style.css" rel="stylesheet"/>
+        <script>
+            function lettersOnly(input){
+                var reg = /[^a-z]/gi;
+                input.value = input.value.replace(reg,"");
+                     
+  }
+        function validateForm() {
+    var x = document.forms["customersform"]["customernamee"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+       
+    }
+           
+              var y = document.forms["customersform"]["customeridd"].value;
+    if (y == "") {
+        alert("Customer ID is required");
+        return false;
+    }
+}
+        
+        
+        </script>>
+    
+    </head>   
+<body>
+    <div class = "container">
+        
+    <!-- Making the header -->
+    <div>
+        <h1>People Health Pharmacy</h1>
+        
+    </div>
+        
+    <!-- Creating the navigation bar -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                  <li><a href="index.html">Home</a></li>
+             
+                <li><a href="inventory/index.html">Inventory</a></li>
+                <li><a href="report/index.html">Report</a></li>
+                <li><a href="sales/index.html">Sales</a></li>
+                
+                <li class="active"><a href="customers.html">Customers</a></li>
+            </ul>
+        </div>
+    </nav>
+
+	<div class="form-group">
+    <form action="addcustomers.php" id="customersform" onsubmit="return validateForm()" method="POST"> 
+    <fieldset>
+        <p id="cust"><strong><legend id="cust">CUSTOMER DETAILS</legend></strong></p>
+			<p id="customername">Customer Name: <p><input type="text" name="CustName" id="customernamee" placeholder="Your Name" onkeyup="lettersOnly(this)" /></p>
+            <p id="customerid">Customer ID: <p><input type="text" id="customeridd" name="CustID" placeholder="Your ID" /></p>
+        <p id="customerno">Contact No: <p><input type="text" id="customerno" name="Custno" placeholder="Your Contact number" /></p>
+        <p id="customertown">Hometown: <p><input type="text" id="home" name="Custhm" placeholder="Your Hometown" /></p>
+        <strong><p id="genderG">Gender</p></strong>
+        <p id="gender"><input type="radio" name="gender" value="male"> Male<br></p>
+        <p id="gender"><input type="radio" name="gender" value="female"> Female<br></p>
+     
+	    <br/>
+	        <div id="forms"></div>
+        <p id="buttons"><button onclick="onRegister()">Add Customer Details</button></p>
+	</fieldset>
+
+
+        <p id="buttons"><input type="reset"/></p>
+      
+    </form>
+	</div>
+
+    </div>
+</body>
+</html>
