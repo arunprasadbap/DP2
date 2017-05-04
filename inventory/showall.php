@@ -18,7 +18,11 @@ while($row=mysqli_fetch_assoc($rs)){
         <script>
         
         var table = document.getElementById("tablee");
-         
+        
+        
+        
+        
+        
         </script>
     <title>Inventory index</title>
     </head>
@@ -35,7 +39,7 @@ while($row=mysqli_fetch_assoc($rs)){
                 <div class="navbar-header">
                 
                 </div>
-<!--               Navigation bar-->
+
                 <ul class="nav navbar-nav">
                   <li><a href="../index.html">Home</a></li>
                   <li class="active"><a href="../inventory/index.html">Inventory</a></li>
@@ -46,8 +50,6 @@ while($row=mysqli_fetch_assoc($rs)){
                 </ul>
               </div>
             </nav>
-            
-<!--            Creating the table to show the inventory-->
     <div style="height:800px; overflow-y:auto;">
 		<table id="tablee" border="1em" class="table table-bordered table-striped table-hover">
 		  <thead>
@@ -61,29 +63,31 @@ while($row=mysqli_fetch_assoc($rs)){
 		  </thead>
 
 		  <tbody>
-<!--              Showing the table data and make the editable-->
               <?php foreach($data as $inventory){?>
               <tr>
-                  <td><form name="form1" method="post"><input name="checkbox[]" type="checkbox" id="checkbox[]"></form></td>
-                      
+                            
                   <td><?php echo $inventory['item_name'];?></td>
                   <td><?php echo $inventory['itemdec'];?></td>
                   <td><?php echo $inventory['itemcount'];?></td>
                   <td><?php echo $inventory['itemprice'];?></td>
+                  <td><form name="form1" method="post"><input name="checkbox[]" type="checkbox" id="checkbox[]" value="<?php echo $inventory['itemId']; ?>"></td>
                   
               </tr>
-<!--              Make the data deletable-->
+              
               <?php }?>
-              <tr><td colspan="4"><input type="submit" id="delete" name="delete" value="DELETE" style="float: right;margin-left:10px;"><a class="button" href="addInventory.html">Go back</a></td></tr>
+              <tr>
+                  <td colspan="4"><input type="submit" id="delete" name="delete" value="DELETE" style="float: right;margin-left:10px;"></td>
+                  <td><a class="button" href="addInventory.html">Go back</a></td>
+              </tr>
               
               <?php
-             
+              
+              
             if(isset($_POST['delete'])){
                 for($i=0;$i<count($_POST['checkbox']);$i++)
                 {
                 $del_id=$_POST['checkbox'][$i];
                     
-
                 $result = mysqli_query($con, "DELETE FROM inventory WHERE itemId=$del_id");
                 echo "<meta http-equiv=\"refresh\" content=\"0;URL=showall.php\">";
             }
@@ -91,7 +95,7 @@ while($row=mysqli_fetch_assoc($rs)){
               ?>
               
 		  </tbody>
-            
+            </form>  
 		</table>
 	</div>
   </div>

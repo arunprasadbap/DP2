@@ -8,8 +8,14 @@ h1{
 	text-align:center;
     color: black;
 }
+
 #h1{
 	color:black;
+    font-family:monospace;
+}
+
+#txtboxheadings{
+    font-family:monospace;
 }
 
 .container {
