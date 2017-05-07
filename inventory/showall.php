@@ -71,6 +71,7 @@ while($row=mysqli_fetch_assoc($rs)){
                   <td><?php echo $inventory['itemcount'];?></td>
                   <td><?php echo $inventory['itemprice'];?></td>
                   <td><form name="form1" method="post"><input name="checkbox[]" type="checkbox" id="checkbox[]" value="<?php echo $inventory['itemId']; ?>"></td>
+                     <td><a href='editInventory.php?edit=<?php echo $inventory[itemId];?>'>edit</a></td>
                   
               </tr>
               
