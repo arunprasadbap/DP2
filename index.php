@@ -31,6 +31,7 @@ if(isset($_SESSION['use']))   // Checking whether the session is already there o
 
 		if($num>0){
 			$_SESSION['login']=true;
+            header("location:Home.php");
 		}else{
 			$error=1;
 		}
@@ -49,20 +50,24 @@ if(isset($_SESSION['use']))   // Checking whether the session is already there o
 	<title>Login System</title>
 </head>
 <body>
-	<div class="container">
-		<a data-ng-href="#" class="btn btn-info btn-md"  data-toggle="modal" data-target="#login">Login</a>
-                                
-        <div class="modal fade" id="login" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4>Login</h4>
+	<div class="container-fuild">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+                    
                 </div>
                 <div class="margin">
-                    <form action="Home.php" method="POST">
+                    <div class="row">
+                    <div class="col-xs-4"><p></p></div>
+                    <div class="col-xs-4"><p>
+                    <form action="" method="POST">
                         <div class="form-group <?php if($error==1){ ?>has-error<?php } ?>">
 
                             <label for="user_name">
