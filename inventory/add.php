@@ -48,7 +48,8 @@ if(!$conn){
                 echo "<div>
                 <script>
                         window.alert(' added successfully!');
-                        window.location.href = 'addInventory.html';
+                        
+                        window.location.href = 'showall.php';
                 </script>
                 </div>";
             } else {

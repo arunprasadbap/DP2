@@ -10,13 +10,13 @@ if(isset($_GET['edit'])){
     
 }
 if(isset($_POST['newitemName'])){
- $itemId =$_POST['itemId'];
+    $itemId =$_POST['itemId'];
     $newitemName=$_POST['newitemName'];
     $newitemDesc=$_POST['newitemDesc'];
     $newitemCount=$_POST['newitemCount'];
     $newitemPrice=$_POST['newitemPrice'];
     $sql = "UPDATE inventory SET item_name='$newitemName',itemdec='$newitemDesc',itemcount='$newitemCount',itemprice='$newitemPrice'
-    WHERE itemId='$itemId'";
+    WHERE itemId='$itemId' ";
     $rs = mysqli_query($con, $sql) or die("could not update".mysql_error());
     echo '<script language="javascript">';
 echo 'alert("INVENTORY SUCCESSFULLY UPDATED!!!!!")';
@@ -71,17 +71,18 @@ echo '</script>';
     <div class = "form-group">
         <form action="editInventory.php" method="POST"  id="inventory">
             <fieldset>
-            
-                <label for = "itemname">Item Name: <input type="text"  name="ItemName" value="<?php echo $row[item_name] ?>" class = "form-control" placeholder = "Item Name" onkeyup="lettersOnly(this)" /></label>
+                <label><input type="hidden" name="itemId" value="<?php echo $row[itemId] ?>" class = "form-control"  ></label>
+            <br>
+                <label for = "itemname">Item Name: <input type="text"  name="newitemName" value="<?php echo $row[item_name] ?>" class = "form-control" placeholder = "Item Name" onkeyup="lettersOnly(this)" /></label>
 	      
 		      <br>
-              <label>Item Description: <input type="text" name="Itemdesc" value="<?php echo $row[itemdec] ?>" class = "form-control" placeholder = "Item Description" rows="15" cols="90" onkeyup="lettersOnly(this)" ></label>
+              <label>Item Description: <input type="text" name="newitemDesc" value="<?php echo $row[itemdec] ?>" class = "form-control" placeholder = "Item Description" rows="15" cols="90" onkeyup="lettersOnly(this)" ></label>
 		  
 		      <br>
-              <label>Item Count: <input type="text" name="Itemcount" value="<?php echo $row[itemcount] ?>" class = "form-control" placeholder = "Item Count" /></label>
+              <label>Item Count: <input type="text" name="newitemCount" value="<?php echo $row[itemcount] ?>" class = "form-control" placeholder = "Item Count" /></label>
 		  
 		      <br>
-              <label>Item Price: <input type="text" name="Itemprice" value="<?php echo $row[itemprice] ?>" class = "form-control" placeholder = "Item Price"/></label>
+              <label>Item Price: <input type="text" name="newitemPrice" value="<?php echo $row[itemprice] ?>" class = "form-control" placeholder = "Item Price"/></label>
           
                 <br>
             </fieldset>

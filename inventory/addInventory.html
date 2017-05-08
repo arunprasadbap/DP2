@@ -1,3 +1,10 @@
+<?php
+    session_start();
+if(!$_SESSION['login']){
+    header("location:index.php");
+}
+?>
+
 <!DOCTYPE HTML>
 <html lang = "en">
     <head>

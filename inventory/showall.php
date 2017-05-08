@@ -3,7 +3,7 @@
 $con = mysqli_connect("localhost","root","rootroot","dp2");
 $rs=mysqli_query($con,"SELECT * FROM inventory");
 $data=array();
-while($row=mysqli_fetch_assoc($rs)){
+while($row=mysqli_fetch_array($rs)){
     $data[]=$row;
 }
 
@@ -17,7 +17,7 @@ while($row=mysqli_fetch_assoc($rs)){
         <link href="../style/style.css" rel="stylesheet"/> 
         <script>
         
-        var table = document.getElementById("tablee");
+//        var table = document.getElementById("tablee");
         
         
         
