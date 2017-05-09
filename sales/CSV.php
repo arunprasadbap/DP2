@@ -7,7 +7,8 @@ $con = mysqli_connect("localhost","root","rootroot","dp2");
 	$query= "SELECT inventory.itemId,inventory.item_name, inventory.itemprice, sales.itemId, sales.salesID, sales.salesDate, sales.itemcount, sales.invoicenumber,  sales.itemcount * inventory.itemprice AS finalprice FROM inventory JOIN sales ON sales.itemID = inventory.itemID WHERE sales.salesDate BETWEEN '".$_POST['dateinput1']."' AND '".$_POST['dateinput2']."'";
 	
 	$result = mysqli_query($con, $query);
-	
+        
+//	making the titles of the columns in excel sheet
 	$filename = 'report/'.strtotime("now").'.csv';
 	$fp = fopen($filename, 'w');
 	fputcsv ($fp, array('Item ID', 'Item Name', 'Item Price', 'Sales ID', 'Sales Date', 'Purchased Quantity', 'Invoice Number', 'Total Price'));
@@ -21,6 +22,8 @@ $con = mysqli_connect("localhost","root","rootroot","dp2");
 	}else{
 	echo "Please select date";}
 ?>
+
+<!--Normal html page-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
