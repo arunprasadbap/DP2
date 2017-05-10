@@ -1,12 +1,13 @@
 <?php
 
-$con = mysqli_connect("localhost","root","rootroot","dp2");
+$con = mysqli_connect("localhost","root","","dp2");
 
 	if(isset($_POST['dateinput1']) && $_POST['dateinput2']!=""){
 	
 	$query= "SELECT inventory.itemId,inventory.item_name, inventory.itemprice, sales.itemId, sales.salesID, sales.salesDate, sales.itemcount, sales.invoicenumber,  sales.itemcount * inventory.itemprice AS finalprice FROM inventory JOIN sales ON sales.itemID = inventory.itemID WHERE sales.salesDate BETWEEN '".$_POST['dateinput1']."' AND '".$_POST['dateinput2']."'";
 	
 	$result = mysqli_query($con, $query);
+<<<<<<< HEAD
         
 //	making the titles of the columns in excel sheet
 	$filename = 'report/'.strtotime("now").'.csv';
@@ -24,6 +25,9 @@ $con = mysqli_connect("localhost","root","rootroot","dp2");
 ?>
 
 <!--Normal html page-->
+=======
+
+>>>>>>> 9d66ef34e900e55796147da6f48055c8a6b2ad75
 <!DOCTYPE html>
 <html lang="en">
   <head>
