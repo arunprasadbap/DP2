@@ -9,14 +9,14 @@ if(isset($_SESSION['use']))   // Checking whether the session is already there o
  }
 
 
-	include "connection.php";
+	include "connection.php"; // create connection 
 
 	$error=0;
 
 	if(isset($_POST['user_name']) && isset($_POST['password'])){
-		$query="SELECT * FROM user WHERE user_name='".$_POST['user_name']."' AND password='".$_POST['password']."'";
-          if($user_name == "user1" && $password == "user1")  // username is  set to "Ank"  and Password   
-         {                                   // is 1234 by default     
+		$query="SELECT * FROM user WHERE user_name='".$_POST['user_name']."' AND password='".$_POST['password']."'";// selecting information from user table
+          if($user_name == "user1" && $password == "user1")  // username is  set to "user1"  and Password   
+         {                                   // is user1 by default     
 
           $_SESSION['use']=$user;
 
@@ -25,15 +25,15 @@ if(isset($_SESSION['use']))   // Checking whether the session is already there o
 
         }
 
-		$rs = mysqli_query($connection,$query);
+		$rs = mysqli_query($connection,$query);// creation connection
 
 		$num=mysqli_num_rows($rs);
 
 		if($num>0){
-			$_SESSION['login']=true;
+			$_SESSION['login']=true;    //if user name and password true get access to Home page
             header("location:Home.php");
 		}else{
-			$error=1;
+			$error=1;                    // otherwise show error 
 		}
 
 	}
@@ -49,7 +49,7 @@ if(isset($_SESSION['use']))   // Checking whether the session is already there o
     <link href="Framework/css/mycss.css" rel="stylesheet">
 	<title>Login System</title>
 </head>
-<body>
+<body bgcolor="black">
 	<div class="container-fuild">
         <br/>
         <br/>
@@ -59,7 +59,8 @@ if(isset($_SESSION['use']))   // Checking whether the session is already there o
         <br/>
         <br/>
         <br/>
-        <br/>
+        
+         <h1 align="center" style="font-family:verdana;">People Health Pharmacy</h1> 
         
                     
                 </div>
