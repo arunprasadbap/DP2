@@ -22,13 +22,13 @@ $servername ="localhost";
 $username="root";
 $password="rootroot";
 
-$conn = mysqli_connect($servername,$username,$password);
+$conn = mysqli_connect($servername,$username,$password); /// the connection name
 
 if(!$conn){
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error); /// pops out with a message if their is an error in connection
     } else {
        
-        mysqli_select_db($conn, "dp2");
+        mysqli_select_db($conn, "dp2"); /// connects with the table customer n order to store the data.
 		$sqltable = "customer";
 		
 		$querycom = "insert into $sqltable (customername, customerID, gender,ContactNo,Hometown) values ('$custname','$custID', '$gender','$custno',' $custhm')";
@@ -41,10 +41,10 @@ if(!$conn){
                 }
             }
 
-            if ($item_count == $count){
+            if ($item_count == $count){ ///notifies if the customers were added correctly
                 echo "<div>
                 <script>
-                        window.alert('Customer added successfully!');
+                        window.alert('Customer added successfully!'); 
                         window.location.href = 'showcustomers.php';
                 </script>
                 </div>";

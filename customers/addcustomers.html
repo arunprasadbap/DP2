@@ -1,7 +1,7 @@
-<!DOCTYPE HTML>
+<!DOCTYPE HTML> 
 <html lang = "en">
-    <head>
-    <title>Add Customers</title>
+    <head>  
+    <title>Add Customers</title> /// title for the page
         
     <meta charset = "utf-8" />
     <meta name = "viewport" content = "width = device - width, initial-scale=1" />
@@ -9,16 +9,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="../style/style.css" rel="stylesheet"/>
-        <script>
+       
+        <script> ///validating the customer form
             function lettersOnly(input){
                 var reg = /[^a-z]/gi;
                 input.value = input.value.replace(reg,"");
                      
   }
-        function validateForm() {
+        function validateForm() { /// function is called once the button is on clicked.
     var x = document.forms["customersform"]["customernamee"].value;
     if (x == "") {
-        alert("Name must be filled out");
+        alert("Name must be filled out"); /// pop's out with a notification if the user enters wrong information in the field
         return false;
        
     }
@@ -29,10 +30,9 @@
         return false;
     }
 }
-        
-        
         </script>>
     
+        
     </head>   
 <body>
     <div class = "container">
@@ -49,9 +49,9 @@
             <ul class="nav navbar-nav">
                   <li><a href="index.html">Home</a></li>
              
-                <li><a href="../inventory/index.html">Inventory</a></li>
-                <li><a href="../report/index.html">Report</a></li>
-                <li><a href="../sales/index.html">Sales</a></li>
+                <li><a href="inventory/index.html">Inventory</a></li>
+                <li><a href="report/index.html">Report</a></li>
+                <li><a href="sales/index.html">Sales</a></li>
                 
                 <li class="active"><a href="customers.html">Customers</a></li>
             </ul>
@@ -59,23 +59,25 @@
     </nav>
 
 	<div class="form-group">
-    <form action="addcustomers.php" id="customersform" onsubmit="return validateForm()" method="POST"> 
+    <form action="addcustomers.php" id="customersform"  method="POST"> 
     <fieldset>
         <p id="cust"><strong><legend id="cust">CUSTOMER DETAILS</legend></strong></p>
-			<p id="customername">Customer Name: <input type="text" name="CustName" id="customernamee" placeholder="Your Name" onkeyup="lettersOnly(this)" /></p>
-            <p id="customerid">Customer ID: <input type="text" id="customeridd" name="CustID" placeholder="Your ID" /></p>
+			<p id="customername">Customer Name: <p><input type="text" name="CustName" id="customernamee" placeholder="Your Name" onkeyup="lettersOnly(this)" /></p>
+           
+        <p id="customername">Contact No: <p><input type="text" id="customerno" name="Custno" placeholder="Your Contact number" /></p>
+        <p id="customername">Hometown: <p><input type="text" id="home" name="Custhm" placeholder="Your Hometown" /></p>
         <strong><p id="genderG">Gender</p></strong>
         <p id="gender"><input type="radio" name="gender" value="male"> Male<br></p>
         <p id="gender"><input type="radio" name="gender" value="female"> Female<br></p>
      
 	    <br/>
 	        <div id="forms"></div>
-        <p id="buttons"><button onclick="onRegister()">Add Customer Details</button></p>
+        <p id="buttons"><button onclick="onRegister()">Add Customer Details</button></p>/// javascript validation
 	</fieldset>
 
 
         <p id="buttons"><input type="reset"/></p>
-        <p id="buttons"><input type="submit"/></p>
+      
     </form>
 	</div>
 
