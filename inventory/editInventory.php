@@ -2,13 +2,14 @@
 $con = mysqli_connect("localhost","root","rootroot","dp2");
 if(isset($_GET['edit'])){
     
-    
+   //getting the specific item from the server 
     $itemId=$_GET['edit'];
    $rs=mysqli_query($con,"SELECT * FROM inventory where itemId='$itemId' ");
    $row=mysqli_fetch_array($rs);
   
     
 }
+//Creating new items for idit 
 if(isset($_POST['newitemName'])){
     $itemId =$_POST['itemId'];
     $newitemName=$_POST['newitemName'];

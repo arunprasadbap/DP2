@@ -2,7 +2,7 @@
 
 $con = mysqli_connect("localhost","root","rootroot","dp2");
 
-
+//it gets the itemid from the server
 if(isset($_GET['id']) && $_GET['id']!=""){
                                    
                 $sql1 = "DELETE FROM `inventory` WHERE itemId = ".$_GET['id'];
